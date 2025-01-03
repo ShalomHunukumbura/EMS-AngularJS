@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table table-boarded table-striped">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Role Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of roleList; let srno = index">
+                    <td>{{srno+1}}</td>
+                    <td>{{role.role}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-3"><p>{{firstName}}</p></div>
+    <div class="col-3"><p>{{angularVersion}}</p></div>
+    <div class="col-3"><p>{{currentDate}}</p></div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" [value]="firstName" class="form-control" placeholder="Enter your name">
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="angularVersion" class="form-control" placeholder="Enter angular version">
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-scuccess" (click)="showWelcomeAlert()">Welcome</button>       
+    </div>
+    <div class="col-3">
+        <button class="btn btn-dark" (click)="showMessage('welcome react')">Show</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-primary" (click)="showMessage('welcome .net')">show</button>
+    </div>
+</div> -->
