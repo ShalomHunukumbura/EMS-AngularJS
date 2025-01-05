@@ -41,6 +41,12 @@ onSaveClient(){
   })
 }
 
+onEdit(data: Client){
+  this.clientObj = data;
+  
+
+}
+
 onDelete(Id: number){
   const isDelete = confirm("Do you want to delete this client?");
   if(isDelete){

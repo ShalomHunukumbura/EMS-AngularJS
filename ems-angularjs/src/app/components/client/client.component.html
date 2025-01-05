@@ -27,7 +27,7 @@
                                         <td>{{ item.contactNo }}</td>
                                         <td>{{ item.city }}</td>
                                         <td class="pt-2">
-                                            <button class="btn btn-success pr-2"> Edit</button>
+                                            <button class="btn btn-success pr-2" (click)="onEdit(item)"> Edit</button>
                                             <button class="btn btn-danger" (click)="onDelete(item.clientId)">Delete</button>
                                         </td>
                                     </tr>
@@ -48,9 +48,20 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <form action="">
+                        
+                    </form>
                     <div class="col-6">
                         <label for="">Person Name</label>
-                        <input type="text" [(ngModel)]="clientObj.contactPersonName" class="form-control" >
+                        <input type="text" #personName="ngModel" required minlength="5" [(ngModel)]="clientObj.contactPersonName" class="form-control" >
+                        <div class="text-danger">
+                            @if(personName.invalid && personName.touched){
+                                <span>This is required</span>
+                            }  
+                            @if (personName?.errors?.['minlength']){
+                                <span>Min % chars required </span>
+                            }                              
+                        </div>
                     </div>
                     <div class="col-6">
                         <label for="">Company Name</label>
@@ -94,7 +105,9 @@
                         <button class="btn btn-secondary">Reset Client</button>
                      </div>
                      <div class="col-6">
-                        <button class="btn btn-success" (click)="onSaveClient()">Save Client</button>
+                        <button class="btn btn-success" (click)="onSaveClient()">
+                            {{clientObj.clientId != 0 ? 'Update client' : 'Save client'}}
+                            </button>
                      </div>
                 </div>
             </div>
