@@ -3,10 +3,14 @@ import { Client } from '../../model/class/Client';
 import { FormsModule } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
 import { APIResponse } from '../../model/interface/roles';
+import { AsyncPipe, UpperCasePipe } from '@angular/common';
+import { Observable } from 'rxjs';
+import { AlertComponent } from "../../resuableComponent/alert/alert.component";
+import { MyButtonComponent } from "../../resuableComponent/my-button/my-button.component";
 
 @Component({
   selector: 'app-client',
-  imports: [FormsModule],
+  imports: [FormsModule, UpperCasePipe, AsyncPipe, AlertComponent, MyButtonComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
@@ -17,8 +21,11 @@ export class ClientComponent implements OnInit {
 
   clientService = inject(ClientService);
 
+  userList$ : Observable<any> = new Observable<any>
+
 ngOnInit(): void {
   this.loadClient(); 
+  this.userList$ = this.clientService.getAllUser();
 }
 
 loadClient(){

@@ -1,3 +1,21 @@
+
+<!--<table class="table table-boarded table-striped">
+    <thead>
+        <th>Username</th>
+        <th>Email</th>
+    </thead>
+    <tbody>
+        @for (item of userList$ | async; track $index) { 
+            <tr>
+                <td>{{item.username}}</td>
+                <td>{{item.email}}</td>
+            </tr>   
+        }
+    </tbody>
+
+   
+</table> -->
+<app-alert [alertType]="'success'" [alertMessage]="'Welcome to Client'"></app-alert>
 <div class="row">
     <div class="col-8">
         <div class="card">
@@ -22,7 +40,7 @@
                                 @for (item of clientList; track $index) {
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ item.companyName }}</td>
+                                        <td>{{ item.companyName | uppercase }}</td>
                                         <td>{{ item.contactPersonName }}</td>
                                         <td>{{ item.contactNo }}</td>
                                         <td>{{ item.city }}</td>
@@ -105,9 +123,9 @@
                         <button class="btn btn-secondary">Reset Client</button>
                      </div>
                      <div class="col-6">
-                        <button class="btn btn-success" (click)="onSaveClient()">
-                            {{clientObj.clientId != 0 ? 'Update client' : 'Save client'}}
-                            </button>
+                        <app-my-button [btnClass]="'btn btn-success'" [btnText]="clientObj.clientId != 0 ? 'Update client' : 'Save client'"></app-my-button>
+
+                       
                      </div>
                 </div>
             </div>

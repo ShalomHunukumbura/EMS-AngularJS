@@ -3,6 +3,18 @@ export interface IRole{
     role: string;
 
 }
+export interface ClientProject {
+    empName: string;
+    empId: number;
+    empCode: string;
+    empEmailId: string;
+    empDesignation: string;
+    projectName: string;
+    startDate: string;
+    expectedEndDate: string;
+    clientName: string;
+    clientProjectId: number;
+  }
 
 export interface APIResponse {
     message: string;
@@ -13,4 +25,13 @@ export interface APIResponse {
 export interface IDesignation {
     designationId: number;
     designation: string;
+}
+
+export interface Employee {
+    empName: string,
+     empId: string,
+     empCode: string,
+     empEmailId: string,
+     empDesignation: string,
+     role: string,
 }
